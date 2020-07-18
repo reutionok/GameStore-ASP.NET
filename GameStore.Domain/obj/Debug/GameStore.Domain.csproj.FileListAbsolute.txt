@@ -18,3 +18,8 @@ C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\obj\Debug\GameStore.Do
 C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.csproj.CopyComplete
 C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.dll
 C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.pdb
+C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\bin\Debug\GameStore.Domain.dll.config
+C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Sunny\source\Projects\GameStore\GameStore.Domain\bin\Debug\EntityFramework.SqlServer.xml

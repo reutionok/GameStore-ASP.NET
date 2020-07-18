@@ -42,3 +42,6 @@ C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\obj\Debug\GameStore
 C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\obj\Debug\GameStore.UnitTests.csproj.CopyComplete
 C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\obj\Debug\GameStore.UnitTests.dll
 C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\obj\Debug\GameStore.UnitTests.pdb
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\EntityFramework.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\GameStore.Domain.dll.config
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\EntityFramework.xml
