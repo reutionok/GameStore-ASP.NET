@@ -1,72 +1,73 @@
-﻿using Microsoft.Analytics.Interfaces;
-using Microsoft.Analytics.Interfaces.Streaming;
-using Microsoft.Analytics.Types.Sql;
-using Microsoft.Analytics.UnitTest;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
+using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using GameStore.Domain.Abstract;
+using GameStore.Domain.Entities;
+using GameStore.WebUI.Controllers;
+using GameStore.WebUI.Models;
+using GameStore.WebUI.HtmlHelpers;
 
 namespace GameStore.UnitTests
 {
     [TestClass]
     public class UnitTest1
     {
-        public UnitTest1()
+        [TestMethod]
+        public void Can_Paginate()
         {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
+            // Организация (arrange)
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+            mock.Setup(m => m.Games).Returns(new List<Game>
             {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+                new Game { GameId = 1, Name = "Игра1"},
+                new Game { GameId = 2, Name = "Игра2"},
+                new Game { GameId = 3, Name = "Игра3"},
+                new Game { GameId = 4, Name = "Игра4"},
+                new Game { GameId = 5, Name = "Игра5"}
+            });
+            GameController controller = new GameController(mock.Object);
+            controller.pageSize = 3;
 
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
+            // Действие (act)
+            IEnumerable<Game> result = (IEnumerable<Game>)controller.List(2).Model;
+
+            // Утверждение (assert)
+            List<Game> games = result.ToList();
+            Assert.IsTrue(games.Count == 2);
+            Assert.AreEqual(games[0].Name, "Игра4");
+            Assert.AreEqual(games[1].Name, "Игра5");
+        }
 
         [TestMethod]
-        public void TestMethod1()
+        public void Can_Generate_Page_Links()
         {
-            //
-            // TODO: Add test logic here
-            //
+
+            // Организация - определение вспомогательного метода HTML - это необходимо
+            // для применения расширяющего метода
+            HtmlHelper myHelper = null;
+
+            // Организация - создание объекта PagingInfo
+            PagingInfo pagingInfo = new PagingInfo
+            {
+                CurrentPage = 2,
+                TotalItems = 28,
+                ItemsPerPage = 10
+            };
+
+            // Организация - настройка делегата с помощью лямбда-выражения
+            Func<int, string> pageUrlDelegate = i => "Page" + i;
+
+            // Действие
+            MvcHtmlString result = myHelper.PageLinks(pagingInfo, pageUrlDelegate);
+
+            // Утверждение
+            Assert.AreEqual(@"<a class=""btn btn-default"" href=""Page1"">1</a>"
+                + @"<a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
+                + @"<a class=""btn btn-default"" href=""Page3"">3</a>",
+                result.ToString());
         }
     }
 }

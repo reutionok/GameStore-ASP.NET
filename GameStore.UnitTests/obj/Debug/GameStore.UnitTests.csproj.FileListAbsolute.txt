@@ -45,3 +45,9 @@ C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\obj\Debug\GameStore
 C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\EntityFramework.dll
 C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\GameStore.Domain.dll.config
 C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\EntityFramework.xml
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.Helpers.resources.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.Mvc.resources.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.Razor.resources.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.WebPages.resources.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Sunny\source\Projects\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
